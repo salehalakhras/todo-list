@@ -48,21 +48,21 @@ const Task = ({
   }
   return (
     <div className="w-full bg-blue-800 rounded-lg p-4 border border-blue-700">
-      <div className="text-2xl font-bold text-slate-300">{task.title}</div>
-      <div className="text-slate-300 pt-4 font-bold">Description: </div>
-      <div className="text-slate-300 pb-4">{task.description}</div>
+      <div className="text-xl md:text-2xl font-bold text-slate-300">{task.title}</div>
+      <div className="text-sm md:text-base text-slate-300 pt-4 font-bold">Description: </div>
+      <div className="text-sm md:text-base text-slate-300 pb-4">{task.description}</div>
       <div className="flex justify-between items-center">
         <div>
           <div className="flex gap-4 items-center">
             <FontAwesomeIcon className="text-slate-300" icon={faCalendar} />
-            <div className="text-slate-300 font-bold">{task.dueDate}</div>
+            <div className="text-sm md:text-base text-slate-300 font-bold">{task.dueDate}</div>
           </div>
           <div className="flex gap-4 items-center">
             <FontAwesomeIcon
               className="text-slate-300"
               icon={faExclamationCircle}
             />
-            <div className="text-slate-300 font-bold">{task.priority}</div>
+            <div className="text-sm md:text-base text-slate-300 font-bold">{task.priority}</div>
           </div>
           <div className="flex gap-4 items-center">
             {task.state === "Pending" && (
@@ -78,19 +78,19 @@ const Task = ({
                 icon={faCircleCheck}
               />
             )}
-            <div className="text-slate-300 font-bold">{task.state}</div>
+            <div className="text-sm md:text-base text-slate-300 font-bold">{task.state}</div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-2">
-          <button className="p-2 px-4 bg-green-600 text-slate-300 rounded-lg shadow-lg font-bold"
+        <div className="flex md:flex-row gap-2">
+          <button className="p-1 px-2 md:p-2 md:px-4 bg-green-600 text-slate-300 rounded-lg shadow-lg font-bold"
           onClick={handleCompleteTask}>
-            {task.state === "Pending" ? "Complete Task" : "Reopen Task"}
+            {task.state === "Pending" ? "Complete" : "Reopen"}
           </button>
           <button
-            className="ml-4 p-2 px-4 bg-red-600 text-slate-300 rounded-lg shadow-lg font-bold"
+            className="p-1 px-2 md:p-2 md:px-4 bg-red-600 text-slate-300 rounded-lg shadow-lg font-bold"
             onClick={handleDeleteTask}
           >
-            Delete Task
+            Delete
           </button>
         </div>
       </div>

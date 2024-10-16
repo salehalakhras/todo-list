@@ -11,7 +11,7 @@ function App() {
   },[]);
 
   return (
-    <div className='w-screen h-screen overflow-auto bg-blue-600 flex flex-col items-center'>
+    <div className=' w-screen h-screen overflow-auto bg-blue-600 flex flex-col items-center'>
       <Navbar></Navbar>
       <ContentArea></ContentArea>
     </div>

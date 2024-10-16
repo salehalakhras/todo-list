@@ -46,7 +46,7 @@ const TaskCreateModal = ({
       <input
         type="text"
         placeholder="Task Title"
-        className="text-slate-300 bg-blue-950 px-4 py-1 font-bold rounded-lg shadow-lg border border-blue-700 w-3/4 md:w-1/3"
+        className="text-sm md:text-base text-slate-300 bg-blue-950 p-1 px-2 md:px-4 md:p-1 font-bold rounded-lg shadow-lg border border-blue-700 w-3/4 md:w-1/3"
         onChange={(e) => setTask({ ...task, title: e.target.value })}
       />
 
@@ -54,14 +54,14 @@ const TaskCreateModal = ({
         placeholder="Task Due Date"
         type="text"
         onFocus={(e) => (e.target.type = "date")}
-        className="text-slate-300 bg-blue-950 px-4 py-1 font-bold rounded-lg shadow-lg border border-blue-700 w-3/4 md:w-1/3"
+        className="text-sm md:text-base text-slate-300 bg-blue-950 p-1 px-2 md:px-4 md:p-1 font-bold rounded-lg shadow-lg border border-blue-700 w-3/4 md:w-1/3"
         onChange={(e) => setTask({ ...task, dueDate: e.target.value })}
       />
 
-      <legend className="text-slate-300 font-bold">Task Priority</legend>
+      <legend className="text-sm md:text-base text-slate-300 font-bold">Task Priority</legend>
 
       <div className="flex gap-4">
-        <label htmlFor="h-priority" className="text-red-600 font-bold">
+        <label htmlFor="h-priority" className="text-sm md:text-base text-red-600 font-bold">
           High
         </label>
         <input
@@ -73,7 +73,7 @@ const TaskCreateModal = ({
           onChange={(e) => setTask({ ...task, priority: e.target.value })}
         />
 
-        <label htmlFor="m-priority" className="text-yellow-600 font-bold">Medium</label>
+        <label htmlFor="m-priority" className="text-sm md:text-base text-yellow-600 font-bold">Medium</label>
         <input
           type="radio"
           name="priority"
@@ -82,7 +82,7 @@ const TaskCreateModal = ({
           className="text-yellow-400 bg-gray-100 border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           onChange={(e) => setTask({ ...task, priority: e.target.value })}
         />
-        <label htmlFor="l-priority" className="text-green-600 font-bold">Low</label>
+        <label htmlFor="l-priority" className="text-sm md:text-base text-green-600 font-bold">Low</label>
         <input
           type="radio"
           name="priority"
@@ -95,19 +95,19 @@ const TaskCreateModal = ({
 
       <textarea
         placeholder="Task Description"
-        className="text-slate-300 bg-blue-950 px-4 py-1 font-bold rounded-lg shadow-lg border border-blue-700 w-3/4 md:w-1/3 h-1/3"
+        className="text-sm md:text-base text-slate-300 bg-blue-950 p-1 px-2 md:px-4 md:p-1 font-bold rounded-lg shadow-lg border border-blue-700 w-3/4 md:w-1/3 h-1/3"
         onChange={(e) => setTask({ ...task, description: e.target.value })}
       />
 
       <button
-        className="text-slate-300 bg-green-500 px-4 py-1 font-bold rounded-lg shadow-lg"
+        className="text-sm md:text-base text-slate-300 bg-green-500 p-1 px-2 md:px-4 md:p-1 font-bold rounded-lg shadow-lg"
         onClick={handleAddTask}
       >
         Add Task
       </button>
 
       <button
-        className="text-slate-300 bg-red-500 px-4 py-1 font-bold rounded-lg shadow-lg absolute bottom-0 right-0 m-6"
+        className="text-sm md:text-base text-slate-300 bg-red-500 p-1 px-2 md:px-4 md:p-1 font-bold rounded-lg shadow-lg absolute bottom-0 right-0 m-6"
         onClick={() => setTaskCreateModal(false)}
       >
         Cancel
