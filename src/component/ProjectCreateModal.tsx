@@ -6,7 +6,9 @@ const ProjectCreateModal = ({
   setCurrentProject,
   setProjectCreateModal,
 }: {
-  setCurrentProject: React.Dispatch<React.SetStateAction<ProjectType | undefined>>;
+  setCurrentProject: React.Dispatch<
+    React.SetStateAction<ProjectType | undefined>
+  >;
   setProjectCreateModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [projectName, setProjectName] = React.useState("");
@@ -15,7 +17,7 @@ const ProjectCreateModal = ({
     const projects: ProjectType[] = getProjects();
 
     const project: ProjectType = {
-      id: (projects.length).toString(),
+      id: projects.length.toString(),
       name: projectName,
       tasks: [],
     };
@@ -29,23 +31,26 @@ const ProjectCreateModal = ({
   };
 
   return (
-    <div className="w-1/2 h-2/5  md:w-2/5 md:h-1/3 lg:w-1/3 bg-blue-900 rounded-lg shadow-xl opacity-90 absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-4">
-      <div className="text-center md:text-left text-2xl md:text-3xl font-bold text-slate-200 p-4">
+    <div className="absolute left-1/2 top-1/2 z-10 flex h-2/5 w-1/2 -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-4 rounded-lg bg-blue-900 opacity-90 shadow-xl md:h-1/3 md:w-2/5 lg:w-1/3">
+      <div className="p-4 text-center text-2xl font-bold text-slate-200 md:text-left md:text-3xl">
         Create New Project
       </div>
       <input
         type="text"
         placeholder="Project Name"
-        className="text-sm md:text-base text-slate-300 bg-blue-950 p-1 px-2 md:px-4 md:p-1 font-bold rounded-lg shadow-lg border border-blue-700 w-3/4"
+        className="w-3/4 rounded-lg border border-blue-700 bg-blue-950 p-1 px-2 text-sm font-bold text-slate-300 shadow-lg md:p-1 md:px-4 md:text-base"
         onChange={(e) => setProjectName(e.target.value)}
         value={projectName}
       />
-      <button className="text-sm md:text-base text-slate-300 bg-blue-500 p-1 px-2 md:px-4 md:p-1 font-bold rounded-lg shadow-lg"
-      onClick={handleCreateProject}
-      >Create Project</button>
+      <button
+        className="rounded-lg bg-blue-500 p-1 px-2 text-sm font-bold text-slate-300 shadow-lg md:p-1 md:px-4 md:text-base"
+        onClick={handleCreateProject}
+      >
+        Create Project
+      </button>
 
       <button
-        className="text-sm md:text-base text-slate-300 bg-red-500 p-1 px-2 md:px-4 md:p-1 font-bold rounded-lg shadow-lg absolute bottom-0 right-0 m-6"
+        className="absolute bottom-0 right-0 m-6 rounded-lg bg-red-500 p-1 px-2 text-sm font-bold text-slate-300 shadow-lg md:p-1 md:px-4 md:text-base"
         onClick={() => setProjectCreateModal(false)}
       >
         Cancel

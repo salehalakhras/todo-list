@@ -36,18 +36,18 @@ const Project = ({
     <>
       {project.tasks.length == 0 ? (
         <div className="flex flex-col items-center gap-4">
-          <div className="w-full pt-2 text-2xl text-slate-300 font-bold text-center">
+          <div className="w-full pt-2 text-center text-2xl font-bold text-slate-300">
             No Tasks for this Project
           </div>
           <button
-            className="text-slate-300 bg-blue-950 px-4 py-1 font-bold rounded-lg shadow-lg border border-blue-700"
+            className="rounded-lg border border-blue-700 bg-blue-950 px-4 py-1 font-bold text-slate-300 shadow-lg"
             onClick={handleTaskCreate}
           >
             Add Task
           </button>
         </div>
       ) : (
-        <div className="w-full pt-2 flex flex-col gap-2 overflow-auto">
+        <div className="flex w-full flex-col gap-2 overflow-auto pt-2">
           {project.tasks.map((task) => (
             <Task
               key={task.id}

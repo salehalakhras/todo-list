@@ -10,7 +10,9 @@ import TaskCreateModal from "./TaskCreateModal";
 
 const ContentArea = () => {
   const [refresh, setRefresh] = React.useState(false);
-  const [currentProject, setCurrentProject] = React.useState<ProjectType | undefined>();
+  const [currentProject, setCurrentProject] = React.useState<
+    ProjectType | undefined
+  >();
   const [projectSelectModal, setProjectSelectModal] = React.useState(false);
   const [projectCreateModal, setProjectCreateModal] = React.useState(false);
   const [taskCreateModal, setTaskCreateModal] = React.useState(false);
@@ -23,7 +25,6 @@ const ContentArea = () => {
         setCurrentProject(p);
       }
     });
-
   }, [refresh]);
 
   const handleChangeProject = () => {
@@ -31,24 +32,32 @@ const ContentArea = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col p-10 md:w-3/4 lg:w-1/2">
+    <div className="flex h-full w-full flex-col p-10 md:w-3/4 lg:w-1/2">
       {currentProject ? (
         <>
-          <div className="w-full h-auto p-2 px-4 md:p-4 bg-blue-800 shadow-lg border border-blue-700 flex items-center justify-between rounded-t-lg">
-            <div className="text-2xl md:text-3xl font-bold text-slate-200 drop-shadow-md">
+          <div className="flex h-auto w-full items-center justify-between rounded-t-lg border border-blue-700 bg-blue-800 p-2 px-4 shadow-lg md:p-4">
+            <div className="text-2xl font-bold text-slate-200 drop-shadow-md md:text-3xl">
               {currentProject.name}
             </div>
-            <FontAwesomeIcon icon={faPlusCircle} className="text-slate-300 w-6 h-6 md:w-8 md:h-8 cursor-default hover:text-slate-400 hover:cursor-pointer hover:scale-x-110 " onClick={() => setTaskCreateModal(true)}/>
-            <div className="flex gap-4 flex-col md:flex-row">
+            <FontAwesomeIcon
+              icon={faPlusCircle}
+              className="h-6 w-6 cursor-default text-slate-300 hover:scale-x-110 hover:cursor-pointer hover:text-slate-400 md:h-8 md:w-8"
+              onClick={() => setTaskCreateModal(true)}
+            />
+            <div className="flex flex-col gap-4 md:flex-row">
               <button
-                className="text-slate-300 text-sm md:text-base bg-blue-950 p-2 font-bold rounded-lg shadow-lg border border-blue-700"
+                className="rounded-lg border border-blue-700 bg-blue-950 p-2 text-sm font-bold text-slate-300 shadow-lg md:text-base"
                 onClick={handleChangeProject}
               >
                 Change Project
               </button>
             </div>
           </div>
-          <Project project={currentProject} setRefresh={setRefresh} refresh={refresh} />
+          <Project
+            project={currentProject}
+            setRefresh={setRefresh}
+            refresh={refresh}
+          />
 
           {projectSelectModal && (
             <ProjectChangeModal

@@ -1,10 +1,11 @@
-
 const Navbar = () => {
   return (
-    <div className='w-screen h-14 md:h-20 p-4 bg-blue-800 shadow-lg border border-blue-700 flex items-center justify-center'>
-      <div className='text-2xl md:text-3xl font-bold text-slate-200 drop-shadow-lg'>To Do App</div>
+    <div className="flex h-14 w-screen items-center justify-center border border-blue-700 bg-blue-800 p-4 shadow-lg md:h-20">
+      <div className="text-2xl font-bold text-slate-200 drop-shadow-lg md:text-3xl">
+        To Do App
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

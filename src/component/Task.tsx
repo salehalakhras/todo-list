@@ -13,18 +13,16 @@ import { Project as ProjectType } from "./types/types";
 const Task = ({
   task,
   setRefresh,
-  refresh
+  refresh,
 }: {
   task: TaskType;
   setRefresh: React.Dispatch<React.SetStateAction<boolean>>;
   refresh: boolean;
 }) => {
-
-
   const handleDeleteTask = () => {
     const projects: ProjectType[] = getProjects();
     projects[task.project].tasks = projects[task.project].tasks.filter(
-      (t) => t.id !== task.id
+      (t) => t.id !== task.id,
     );
     setProjects(projects);
     setRefresh(!refresh);
@@ -42,29 +40,39 @@ const Task = ({
       }
       return t;
     });
-    
+
     setProjects(projects);
     setRefresh(!refresh);
-  }
+  };
   return (
-    <div className="w-full bg-blue-800 rounded-lg p-4 border border-blue-700">
-      <div className="text-xl md:text-2xl font-bold text-slate-300">{task.title}</div>
-      <div className="text-sm md:text-base text-slate-300 pt-4 font-bold">Description: </div>
-      <div className="text-sm md:text-base text-slate-300 pb-4">{task.description}</div>
-      <div className="flex justify-between items-center">
+    <div className="w-full rounded-lg border border-blue-700 bg-blue-800 p-4">
+      <div className="text-xl font-bold text-slate-300 md:text-2xl">
+        {task.title}
+      </div>
+      <div className="pt-4 text-sm font-bold text-slate-300 md:text-base">
+        Description:{" "}
+      </div>
+      <div className="pb-4 text-sm text-slate-300 md:text-base">
+        {task.description}
+      </div>
+      <div className="flex items-center justify-between">
         <div>
-          <div className="flex gap-4 items-center">
+          <div className="flex items-center gap-4">
             <FontAwesomeIcon className="text-slate-300" icon={faCalendar} />
-            <div className="text-sm md:text-base text-slate-300 font-bold">{task.dueDate}</div>
+            <div className="text-sm font-bold text-slate-300 md:text-base">
+              {task.dueDate}
+            </div>
           </div>
-          <div className="flex gap-4 items-center">
+          <div className="flex items-center gap-4">
             <FontAwesomeIcon
               className="text-slate-300"
               icon={faExclamationCircle}
             />
-            <div className="text-sm md:text-base text-slate-300 font-bold">{task.priority}</div>
+            <div className="text-sm font-bold text-slate-300 md:text-base">
+              {task.priority}
+            </div>
           </div>
-          <div className="flex gap-4 items-center">
+          <div className="flex items-center gap-4">
             {task.state === "Pending" && (
               <FontAwesomeIcon
                 className="text-slate-300"
@@ -78,16 +86,20 @@ const Task = ({
                 icon={faCircleCheck}
               />
             )}
-            <div className="text-sm md:text-base text-slate-300 font-bold">{task.state}</div>
+            <div className="text-sm font-bold text-slate-300 md:text-base">
+              {task.state}
+            </div>
           </div>
         </div>
-        <div className="flex md:flex-row gap-2">
-          <button className="p-1 px-2 md:p-2 md:px-4 bg-green-600 text-slate-300 rounded-lg shadow-lg font-bold"
-          onClick={handleCompleteTask}>
+        <div className="flex gap-2 md:flex-row">
+          <button
+            className="rounded-lg bg-green-600 p-1 px-2 font-bold text-slate-300 shadow-lg md:p-2 md:px-4"
+            onClick={handleCompleteTask}
+          >
             {task.state === "Pending" ? "Complete" : "Reopen"}
           </button>
           <button
-            className="p-1 px-2 md:p-2 md:px-4 bg-red-600 text-slate-300 rounded-lg shadow-lg font-bold"
+            className="rounded-lg bg-red-600 p-1 px-2 font-bold text-slate-300 shadow-lg md:p-2 md:px-4"
             onClick={handleDeleteTask}
           >
             Delete
